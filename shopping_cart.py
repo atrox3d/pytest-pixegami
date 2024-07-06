@@ -10,7 +10,7 @@ class ShoppingCart:
         return len(self.items)
     
     def get_items(self) -> list[str]:
-        pass
+        return self.items
 
     def get_total_price(self, pricemap) -> int:
         pass
