@@ -1,9 +1,12 @@
 class ShoppingCart:
 
-    def __init__(self) -> None:
+    def __init__(self, max_size:int) -> None:
         self.items: list[str] = []
+        self.max_size = max_size
 
     def add(self, item:str):
+        if self.size() == self.max_size:
+            raise OverflowError('cannot add more items')
         self.items.append(item)
 
     def size(self) -> int:
@@ -13,4 +16,4 @@ class ShoppingCart:
         return self.items
 
     def get_total_price(self, pricemap) -> int:
-        pass
+        return sum(pricemap.get(item) for item in self.items)
